@@ -1,71 +1,42 @@
-// When Foundry VTT is fully initialized, set up our module
+// When Foundry VTT is fully initialized, set up module
 Hooks.once("ready", () => {
     console.log("foundry2rpgengine | Initializing Foundry 2 Rpg Engine");
     Hooks.on("preCreateChatMessage", processRolls);
 });
 
-// When Foundry VTT is initializing, set up module settings
-Hooks.once("init", () => {
-    game.settings.register("foundry2rpgengine", "rollFoundry", {
-        name: "Where to roll dice:",
-        scope: "client",
-        config: true,
-        default: 1,
-        type: Number,
-        choices: {
-            0: "RPG Engine",
-            1: "Foundry",
-            2: "Both"
-        }
-    });
-});
-
 // Process rolls from the chat messages to check how to handle them
 async function processRolls(msg) {
-    let flavor;
     let formula;
     let isRoll;
 
     // Version check to handle different data structures
     if (parseFloat(game.version) >= 9 || parseFloat(game.data.version) >= 0.8) {
         if (msg.isRoll) {
-            flavor = msg.roll.options.flavor ? parseFlavorText(msg.roll.options.flavor) : "dice";
             formula = parseRollFormula(msg.roll.formula);
             isRoll = msg.isRoll;
         }
     } else {
         if (msg.roll) {
-            flavor = msg.flavor ? parseFlavorText(msg.flavor) : "dice";
             formula = parseRollFormula(JSON.parse(msg.roll).formula);
             isRoll = !!msg.roll;
         }
     }
 
     // Handle the roll based on module settings and whether it's a valid roll
-    if (isRoll && game.settings.get("foundry2rpgengine", "rollFoundry") !== 1) {
-        if (formula == "nodice") {
+    if (formula == "nodice") {
             console.log("Foundry2RPGEngine | No dice roll found.");
         } else {
-            window.open("http://localhost:8001/TheRpgEngine/roll/" + flavor + ":" + formula);
-            if (game.settings.get("foundry2rpgengine", "rollFoundry") == 0) {
-
-
-                return false;
+                // Make the POST request to the specified URL
+                fetch('http://localhost:8001/TheRpgEngine/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: formula,
+                    mode: 'no-cors'
+                })
             }
-        }
-    } else {
-        console.log("Foundry2RPGEngine | No dice roll found.");
     }
-}
-
-// Parse flavor text to ensure it's URL-friendly
-function parseFlavorText(flavor) {
-    if (flavor.indexOf("<") > -1) {
-        flavor = flavor.match(/>(.+?)</)[1];
-        flavor = flavor.replace(/:/g, "");
-    }
-    return encodeURI(flavor);
-}
 
 // Parse dice roll formula to make it compatible with our RPG engine
 function parseRollFormula(formula) {

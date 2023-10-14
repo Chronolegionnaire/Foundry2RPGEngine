@@ -1,7 +1,7 @@
 {
   "id": "foundry2rpgengine",
   "title": "Foundry 2 RPG Engine",
-  "description": "A module",
+  "description": "A system agnostic module to send Foundry Rolls to RPG Engine",
   "version": "1.0",
   "authors": [
     {

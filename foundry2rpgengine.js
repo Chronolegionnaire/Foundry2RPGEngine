@@ -12,7 +12,7 @@ async function processRolls(msg) {
     // Version check to handle different data structures
     if (parseFloat(game.version) >= 9 || parseFloat(game.data.version) >= 0.8) {
         if (msg.isRoll) {
-            formula = parseRollFormula(msg.roll.formula);
+            formula = parseRollFormula(msg.rolls[0]._formula);
             isRoll = msg.isRoll;
         }
     } else {
@@ -62,6 +62,7 @@ function handleMultiplicationAndDivision(formula, finalFormula) {
     if (formula.indexOf("*") > -1 || formula.indexOf("/") > -1) {
         let multiDivi = formula;
         multiDivi = multiDivi.replace(/[{} ]/g, "");
+        multiDivi = multiDivi.replace(/[\(\) ]/g, "");
         multiDivi = multiDivi.match(/([\*\/]\d+)(?!d)|(^\d*[\*\/])/g);
         multiDivi = multiDivi.toString().replace(/[\*\/]/g, "");
         let operator = formula.indexOf("*") > -1 ? "*" : "/";

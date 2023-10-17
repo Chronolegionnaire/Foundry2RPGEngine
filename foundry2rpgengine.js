@@ -1,12 +1,14 @@
 Hooks.once("ready", () => {
     console.log("foundry2rpgengine | Initializing Foundry 2 Rpg Engine");
+    system = game.system.id;
     Hooks.on("preCreateChatMessage", processRolls);
 });
 async function processRolls(msg) {
     let isRoll;
-    let rawformula = msg.rolls[0]._formula;
-    let formula = rawformula.toString().replace(/[{}]/g, "");
-    formula = formula.toString().replace(/\[.*?\]/g, "");
+    rawformula = msg.rolls[0]._formula;
+    formula = rawformula.toString().replace(/[{}]/g, "");
+    formula = formula.replace(/\[.*?\]/g, "");
+    formula = formula.replace(/[,]/g, "+");
     if (msg.isRoll) {
         fetch('http://localhost:8001/TheRpgEngine/chat', {
             method: 'POST',
@@ -18,3 +20,4 @@ async function processRolls(msg) {
         })
     }
 }
+

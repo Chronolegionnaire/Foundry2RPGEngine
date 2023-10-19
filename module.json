@@ -15,7 +15,7 @@
   "readme": "https://github.com/League-of-Foundry-Developers/FoundryVTT-Module-Template/blob/master/README.md",
   "url": "https://github.com/Chronolegionnaire/Foundry2RPGEngine",
   "manifest": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/releases/download/Release/module.json",
-  "download": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/releases/download/Release/module.json",
+  "download": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/archive/refs/heads/master.zip",
   "bugs": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/issues",
   "compatibility": {
     "minimum": "10",

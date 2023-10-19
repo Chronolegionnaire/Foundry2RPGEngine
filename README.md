@@ -14,4 +14,5 @@ To request support for a specific system please go to Issues and open a system r
 
 ## Changelog
 1.1 - Refactored and simplified code, added system check to allow for future case by case formulas for specific systems.
+
 1.0 - Initial Release

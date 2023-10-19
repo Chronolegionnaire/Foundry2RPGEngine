@@ -10,6 +10,7 @@
 # Foundry2RPGEngine
 
 Currently this module transmits dice roll formulas from Foundry to RPG Engine, allowing you to use Foundry in RPG Engines built in browser as a character sheet while using RPG Engine as your VTT. 
+To request support for a specific system please go to Issues and open a system request issue.
 
 ## Changelog
 

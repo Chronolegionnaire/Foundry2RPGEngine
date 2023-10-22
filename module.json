@@ -10,7 +10,9 @@
     }
   ],
   "scripts": [
-    "foundry2rpgengine.js"
+    "foundry2rpgengine.js",
+    "scripts/client.js",
+    "scripts/preCreateChatMessage.js"
   ],
   "readme": "https://github.com/League-of-Foundry-Developers/FoundryVTT-Module-Template/blob/master/README.md",
   "url": "https://github.com/Chronolegionnaire/Foundry2RPGEngine",

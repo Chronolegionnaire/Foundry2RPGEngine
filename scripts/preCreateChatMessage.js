@@ -13,6 +13,5 @@ function cleanFormula(rawFormula) {
     return rawFormula
         .toString()
         .replace(/[{}]/g, "")
-        .replace(/\[.*?\]/g, "")
         .replace(/[,]/g, "+");
 }

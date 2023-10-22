@@ -13,6 +13,8 @@ Currently this module transmits dice roll formulas from Foundry to RPG Engine, a
 To request support for a specific system please go to Issues and open a system request issue.
 
 ## Changelog
+1.2 - Refactored and fixed incorrect version reference.
+
 1.1 - Refactored and simplified code, added system check to allow for future case by case formulas for specific systems.
 
 1.0 - Initial Release

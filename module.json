@@ -2,7 +2,7 @@
   "id": "foundry2rpgengine",
   "title": "Foundry 2 RPG Engine",
   "description": "A system agnostic module to send Foundry Rolls to RPG Engine",
-  "version": "v1.31",
+  "version": "v1.3",
   "authors": [
     {
       "name": "Chronolegionnaire",
@@ -10,9 +10,7 @@
     }
   ],
   "scripts": [
-    "foundry2rpgengine.js",
-    "client.js",
-    "preCreateChatMessage.js"
+    "foundry2rpgengine.js"
   ],
   "readme": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/releases/download/1.3/README.md",
   "url": "https://github.com/Chronolegionnaire/Foundry2RPGEngine",

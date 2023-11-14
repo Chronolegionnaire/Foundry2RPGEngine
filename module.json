@@ -2,7 +2,7 @@
   "id": "foundry2rpgengine",
   "title": "Foundry 2 RPG Engine",
   "description": "A system agnostic module to send Foundry Rolls to RPG Engine",
-  "version": "v1.3",
+  "version": "v1.31",
   "authors": [
     {
       "name": "Chronolegionnaire",

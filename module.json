@@ -2,7 +2,7 @@
   "id": "foundry2rpgengine",
   "title": "Foundry 2 RPG Engine",
   "description": "A system agnostic module to send Foundry Rolls to RPG Engine",
-  "version": "v1.31",
+  "version": "v1.4",
   "authors": [
     {
       "name": "Chronolegionnaire",
@@ -12,10 +12,10 @@
   "scripts": [
     "foundry2rpgengine.js"
   ],
-  "readme": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/releases/download/1.31/README.md",
+  "readme": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/releases/download/1.4/README.md",
   "url": "https://github.com/Chronolegionnaire/Foundry2RPGEngine",
-  "manifest": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/releases/download/1.31/module.json",
-  "download": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/archive/refs/tags/1.31.zip",
+  "manifest": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/releases/download/1.4/module.json",
+  "download": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/archive/refs/tags/1.4.zip",
   "bugs": "https://github.com/Chronolegionnaire/Foundry2RPGEngine/issues",
   "compatibility": {
     "minimum": "10",

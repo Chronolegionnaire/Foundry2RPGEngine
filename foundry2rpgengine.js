@@ -21,9 +21,24 @@ Hooks.once("ready", () => {
 });
 
 Hooks.on("renderChatMessage", (chatMessage, html, data) => {
-    // Check if the setting is enabled
-    if (game.settings.get("foundry2rpgengine", "disableRolls")) {
-        // Logic to hide or remove the chat message
+    let isRollMessage = false;
+
+    // Check if the message has a non-empty rolls array
+    if (data.message.rolls && data.message.rolls.length > 0) {
+        isRollMessage = true;
+    }
+    // Check for Pathfinder 1e roll message
+    else if (system === "pf1" && data.message.flags.pf1 && data.message.flags.pf1.metadata && data.message.flags.pf1.metadata.rolls) {
+        isRollMessage = true;
+    }
+    // Check for FateX roll message
+    else if (system === "fatex" && data.message.flags.fatex && data.message.flags.fatex.chatCard && data.message.flags.fatex.chatCard.rolls) {
+        isRollMessage = true;
+    }
+
+    // Check if the setting is enabled and the message is a roll message
+    if (game.settings.get("foundry2rpgengine", "disableRolls") && isRollMessage) {
+        // Hide the chat message
         html[0].style.display = 'none';
 
         // Continue to process and send the roll data
@@ -31,7 +46,9 @@ Hooks.on("renderChatMessage", (chatMessage, html, data) => {
     }
 });
 
+
 async function processRolls(msg) {
+    console.log (msg);
     let formula;
     let rollerName = msg.speaker.alias;
     let rollType;

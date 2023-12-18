@@ -13,6 +13,8 @@ Currently this module transmits dice roll formulas from Foundry to RPG Engine, a
 To request support for a specific system please go to Issues and open a system request issue.
 
 ## Changelog
+1.4 - Added Fate, Fatex, PF1, SWADE, and TwoDSix compatibility, added info text sending as well. Added setting to disable Foundry roll rendering.
+
 1.3 - Refactored and fixed manifest file links
 
 1.2 - Refactored and fixed incorrect version reference.
